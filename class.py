@@ -11,6 +11,7 @@ class Stack(Node):
     def __init__(self, top=None):
         self.top = top
 
+
     def push(self, data):
         self.data = data
         data_list = Stack.instance_class.append(self.data)
