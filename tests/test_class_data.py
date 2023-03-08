@@ -9,6 +9,7 @@ class Test(unittest.TestCase):
     stack.push('data1')
     stack.push('data2')
     stack.push('data3')
+
     def test_Node(self):
         self.assertEqual(Test.n1.data, 5)
         self.assertEqual(Test.n1.next_node, None)
