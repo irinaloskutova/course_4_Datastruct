@@ -18,13 +18,23 @@ class Queue:
             self.tail.next_node = new_node
             self.tail = new_node
 
-# queue = Queue()
-# queue.enqueue('data1')
-# queue.enqueue('data2')
-# queue.enqueue('data3')
-#
-# print(queue.head.data)
-# print(queue.head.next_node.data)
-# print(queue.tail.data)
-# print(queue.tail.next_node)
-# print(queue.tail.next_node.data)
+    def dequeue(self) -> None:
+        if self.head is None:
+            return None
+        else:
+            dequeue_element = self.head
+            self.head = self.head.next_node
+            return dequeue_element.data
+
+queue = Queue()
+queue.enqueue('data1')
+queue.enqueue('data2')
+queue.enqueue('data3')
+print(queue.dequeue())
+# data1
+print(queue.dequeue())
+# data2
+print(queue.dequeue())
+# data3
+print(queue.dequeue())
+# None
