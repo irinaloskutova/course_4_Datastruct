@@ -46,10 +46,40 @@ class LinkedList:
             ll_string += ' None'
             print(ll_string)
 
-ll = LinkedList()
-ll.insert_beginning({'id': 1})
-ll.insert_at_end({'id': 2})
-ll.insert_at_end({'id': 3})
-ll.insert_beginning({'id': 0})
-ll.print_ll()
-# {'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None
+    def to_list(self):
+        '''to_list() - возвращает список с данными, содержащимися в односвязном списке LinkedList'''
+        ll_list = []
+        node = self.head
+        if node is None:
+            return None
+        while node:
+            ll_list.append(node.data)
+            node = node.next_node
+        return ll_list
+
+    def get_data_by_id(self, value):
+        """get_data_by_id() - возвращает первый найденный в LinkedList словарь с ключом id,
+        значение которого равно переданному в метод значению. """
+        ll_list = self.to_list()
+        try:
+            for item in ll_list:
+                if item['id'] == value:
+                    return item
+        except:
+            print("Данные не являются словарем или в словаре нет id.")
+            return "Данные не являются словарем или в словаре нет id."
+
+
+if __name__ == '__main__':
+    # работа блока try/except
+    ll = LinkedList()
+    # ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+    # ll.insert_at_end('idusername')
+    # ll.insert_at_end([1, 2, 3])
+    ll.insert_at_end({'id': 2, 'username': 'mosh_s'})
+
+    user_data = ll.get_data_by_id(2)
+    # Данные не являются словарем или в словаре нет id.
+    # Данные не являются словарем или в словаре нет id.
+    print(user_data)
+    # {'id': 2, 'username': 'mosh_s'}
